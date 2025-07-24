@@ -1,0 +1,61 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital AI Assistant</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Boxicons for Icons (used in style.css and for buttons) -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="app-header">
+        <h1>Hospital AI Assistant</h1>
+        <div class="user-info">
+            <span>Welcome, {{ username }} (Role: {{ user_role }})</span>
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+        </div>
+    </header>
+
+    <div class="chat-container">
+        <div id="chat-history">
+            <!-- Initial Bot Message -->
+            <div class="message bot-message">
+                <p>Hello, {{ username }}! How can I assist you with the hospital records today?</p>
+            </div>
+            <!-- Chat messages will be appended here by script.js -->
+        </div>
+        
+        <div id="mic-status" class="mic-status-indicator" style="display: none;">
+            Listening...
+        </div>
+        <!-- Add this near the mic button in your input-area div -->
+        <div class="input-area">
+    <!-- ... existing input and buttons ... -->
+            <button id="voice-toggle" title="Toggle Voice Response">
+                <i class='bx bxs-volume-full'></i>
+            </button>
+        </div>
+        
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Type your message or use the mic..." autofocus>
+            <button id="send-button" title="Send Message">
+                <i class='bx bxs-send'></i>
+            </button>
+            <button id="mic-button" title="Use Microphone">
+                <i class='bx bxs-microphone'></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main JavaScript file -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

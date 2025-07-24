@@ -1,0 +1,11 @@
+{
+    "operation": "insert",
+    "table": "appointment",
+    "data": {
+        "appointment_id": 301,
+        "appointment_date": "2025-05-22",
+        "appointment_time": "11:00:00",
+        "patient_id": 1,
+        "doctor_id": 1
+    }
+}

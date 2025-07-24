@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Shared styles for login/register pages from login.html for consistency */
+        body.auth-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .auth-container {
+            background-color: var(--surface-color);
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .auth-container h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        .auth-container p {
+            margin-bottom: 20px;
+            color: var(--text-secondary-color);
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-secondary-color);
+            font-weight: 500;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="password"],
+        .form-group input[type="email"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="password"]:focus,
+        .form-group input[type="email"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        .auth-container button[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        .auth-container button[type="submit"]:hover {
+            background-color: #0077cc;
+        }
+        .auth-links {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .auth-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+        .flash-messages {
+            margin-bottom: 15px;
+        }
+        .flash-messages .alert {
+            padding: 10px;
+            border-radius: 4px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .flash-messages .alert-error { background-color: var(--error-color); }
+        .flash-messages .alert-success { background-color: #28a745; } /* Green for success */
+        .flash-messages .alert-info { background-color: #17a2b8; } /* Blue for info */
+
+        /* Role selection specific styling */
+        .role-selection div {
+            margin-bottom: 8px;
+        }
+        .role-selection input[type="radio"] {
+            margin-right: 8px;
+            accent-color: var(--primary-color); /* Modern way to color radio button */
+        }
+        .role-selection label { /* For radio button labels */
+            display: inline-block; /* Align with radio button */
+            margin-bottom: 0;
+            font-weight: normal; /* Normal weight for radio labels */
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <h1>Create Account</h1>
+        <p>Fill in the details to register.</p>
+
+        <div class="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+
+            <!-- Select Your Role Section -->
+            <div class="form-group role-selection">
+                <label>Select Your Role:</label> <!-- Main label for the section -->
+                <div>
+                    <input type="radio" id="role_admin" name="role" value="admin">
+                    <label for="role_admin">Admin</label>
+                </div>
+                <div>
+                    <input type="radio" id="role_doctor" name="role" value="doctor">
+                    <label for="role_admin">Doctor</label>
+                </div>
+                <div>
+                    <input type="radio" id="role_non_admin" name="role" value="non-admin" checked>
+                    <label for="role_non_admin">Standard User</label> <!-- "Standard User" is more user-friendly than "non-admin" -->
+                </div>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+        <div class="auth-links">
+            Already have an account? <a href="{{ url_for('login') }}">Login</a>
+        </div>
+    </div>
+</body>
+</html>

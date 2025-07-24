@@ -1,0 +1,13 @@
+Add a new patient with  name John Doe, age 35, gender male, living at 45 Main Street, contact number 9876543210.
+
+Schedule an appointment with ID 301 on 2025-05-22 at 11:00:00 for patient 1 with doctor 1.
+
+Add a new doctor with name Dr. Suresh, specialization in Cardiology, contact 98788888, schedule Monday to Friday 9 AM to 1 PM
+
+Show the profile of doctor 1
+
+Change the contact number of patient ID 1 to 2165897
+
+Get appointment details for ID 1
+
+Show the bill details for ID 1

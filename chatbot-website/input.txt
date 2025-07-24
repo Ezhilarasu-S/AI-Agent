@@ -1,0 +1,53 @@
+Insert:
+
+"Add a new patient with ID 101, name John Doe, age 35, living at 45 Main Street, contact number 9876543210."
+
+"Insert patient details: ID 102, name Priya Kumar, age 29, address 12 Gandhi Nagar, contact 9123456789."
+
+Update:
+3. "Change the contact number of patient ID 101 to 9999999999."
+4. "Update address of patient 102 to 56 Anna Salai."
+
+View:
+5. "Show me the details of patient with ID 101."
+6. "I want to extract patient information for ID 102."
+
+✅ Doctor Table
+Insert:
+7. "Add a new doctor with ID D201, name Dr. Suresh, specialization in Cardiology, contact 9878888888, schedule Monday to Friday 9 AM to 1 PM."
+8. "Insert doctor D202 named Dr. Rekha, who is a Dermatologist, available 2 PM to 6 PM, contact 8899776655."
+
+Update:
+9. "Update schedule of doctor D201 to Monday–Friday, 10 AM to 2 PM."
+10. "Change the contact of doctor D202 to 9090909090."
+
+View:
+11. "Show the profile of doctor D201."
+12. "Extract the details for doctor with ID D202."
+
+✅ Appointment Table
+Insert:
+13. "Schedule an appointment with ID A301 on 2025-05-22 at 11:00 AM for patient 101 with doctor D201."
+14. "Add appointment A302 for patient 102 to meet doctor D202 at 3:30 PM on 2025-05-23."
+
+Update:
+15. "Update the time for appointment A301 to 12:30 PM."
+16. "Change the appointment date of A302 to 2025-05-25."
+
+View:
+17. "Get appointment details for ID A301."
+18. "I want info about appointment A302."
+
+✅ Billing Table
+Insert:
+19. "Generate a bill with ID B401 for patient 101 and appointment A301, amount 2500, paid online on 2025-05-22."
+20. "Add a new bill B402 for appointment A302 and patient 102, amount 1800, payment offline, status paid, billing date 2025-05-23."
+
+Update:
+21. "Change payment status of bill B401 to Pending."
+22. "Update payment method of B402 to Online."
+
+View:
+23. "Show the bill details for ID B401."
+24. "Extract billing information for B402."
+
