@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 class FewShotPosts:
-    def __init__(self, file_path=("C:\Python Program\PYTHON\Gen AI\Gen project 1\processedpost.jsonC:\Python Program\PYTHON\Gen AI\processedpost.json")):
+    def __init__(self, file_path=("PATH-FOR-FILE")):
         self.df = None
         self.unique_tags = None
         self.load_posts(file_path)
