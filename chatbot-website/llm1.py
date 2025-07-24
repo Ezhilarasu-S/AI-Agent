@@ -19,7 +19,7 @@ API_KEY = None
 MODEL = None
 try:
     # Attempt to get key from environment variable first
-    API_KEY = os.environ.get("GEMINI_API_KEY","AIzaSyAQIhHBXknZo1Znv9SAdsNrnVO-JYyJu-o")
+    API_KEY = os.environ.get("GEMINI_API_KEY","YOUR_API_KEY")
     if not API_KEY:
         raise ValueError("Gemini API Key not found in environment variable GEMINI_API_KEY.")
 
@@ -36,7 +36,7 @@ except Exception as e:
     # Ensure MODEL remains None if setup fails
 
 
-os.environ["GEMINI_API_KEY"] = "AIzaSyAQIhHBXknZo1Znv9SAdsNrnVO-JYyJu-o"
+os.environ["GEMINI_API_KEY"] = "YOUR_API_KEY"
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 model = genai.GenerativeModel('gemini-1.5-flash')
 
